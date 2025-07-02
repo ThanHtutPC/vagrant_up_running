@@ -1,0 +1,25 @@
+Vagrant.configure("2") do |config|
+    # box configuration
+    config.vm.box = "ubuntu/bionic64"
+
+    # hostname configuration
+    config.vm.hostname = "networking-vm"
+
+    # NAT is automatically the first interface (default)
+    # No need to define explicitly
+
+    # host-only network configuration
+    config.vm.network "private_network", ip: "192.168.56.10", auto_config: true
+
+    # forwarded port configuration
+    config.vm.network "forwarded_port", guest: 80, host: 8080
+
+    # bridged network configuration
+    config.vm.network "public_network", bridge: "enp0s3", auto_config: true
+
+    # share folder configuration
+    config.vm.synced_folder ".", "/vagrant"
+
+    # provisioners script configuration
+    config.vm.provision "shell", path: "provisioner.sh"
+end
