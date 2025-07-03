@@ -20,6 +20,8 @@ data.db
 vagrant-restore.db.lock
 cmd/vagrant/Vagrantfile
 binstubs/
+*.box
+
 
 # Bundler/Rubygems
 *.gem
