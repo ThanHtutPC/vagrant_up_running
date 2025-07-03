@@ -1,0 +1,9 @@
+Vagrant.configure("2") do |config|
+  config.vm.box = "ubuntu/focal64"
+  config.vm.hostname = "ssh-lab"
+
+  config.vm.network "private_network", type: "dhcp"
+
+  # Provision another SSH user
+  config.vm.provision "shell", path: "provisioner.sh"
+end

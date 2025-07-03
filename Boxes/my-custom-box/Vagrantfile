@@ -1,0 +1,4 @@
+Vagrant.configure("2") do |config|
+    #config.vm.box = "my-custom.box"
+    config.vm.box = "ssh-user"
+end
